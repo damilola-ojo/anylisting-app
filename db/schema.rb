@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_25_015131) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "capacity", null: false
+    t.string "location", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
