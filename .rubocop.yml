@@ -1,0 +1,49 @@
+require:
+  - rubocop-rails
+
+Layout/LineLength:
+  Max: 120
+  AllowedPatterns: ['\A#']
+
+Naming/InclusiveLanguage:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+RSpec/ExampleLength:
+  Max: 10
+
+Style/AccessorGrouping:
+  EnforcedStyle: separated
+
+Style/Documentation:
+  Enabled: false
+
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+    - 'config/**/*.rb'
+    - 'vendor/bundle/**/*'
+    - 'node_modules/**/*'
+  NewCops: enable
