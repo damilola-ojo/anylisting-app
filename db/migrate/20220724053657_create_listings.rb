@@ -4,7 +4,6 @@ class CreateListings < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.text :description, null: false
       t.integer :capacity, null: false
-      t.string :location, null: false
       t.references :location, null: false, foreign_key: true
       t.references :category, null: false, foreign_key: true
 
