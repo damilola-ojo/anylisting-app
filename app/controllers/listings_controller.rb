@@ -16,26 +16,26 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.create(listing_params)
+    @listing = Listing.new(listing_params)
 
     if @listing.save
-      ## do some black magic here
+      redirect_to root_path
     else
-      ## do some alternative black magic
+      render :new
     end
   end
   
   def update
     if @listing.update(listing_params)
-      # do some blacker magic, lol
+      redirect_to listings_path
     else 
-      ## do some other black magic
+      render :edit
     end
   end
 
   def destroy
     @listing.destroy
-    ## take me to some place i'd love to be
+    redirect_to root_url
   end
 
   private
