@@ -16,4 +16,9 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
     get edit_listing_url(Listing.first)
     assert_response :success
   end
+
+  test "should get show" do
+    get listing_url(Listing.first)
+    assert_response :success
+  end
 end
