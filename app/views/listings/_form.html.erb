@@ -1,0 +1,11 @@
+<%= simple_form_for listing do |listing_form| %>
+
+  <%= listing_form.input :name, input_html: { autofocus: true } %>
+  <%= listing_form.input :description %>
+  <%= listing_form.input :capacity %>
+  <%= listing_form.association :location %>
+  <%= listing_form.association :category %>
+  <%= listing_form.submit class: "btn btn-primary mt-3" %>
+
+<% end %>
+

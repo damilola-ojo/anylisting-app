@@ -1,0 +1,8 @@
+<%= link_to sanitize("&larr; Back to listings"), listings_path %>
+
+<div class="text-center mt-5">
+  <h1>New Listing</h1>
+  <p>Easily create your listing by filling out the form</p>
+</div>
+
+<%= render "form", listing: @listing %>
