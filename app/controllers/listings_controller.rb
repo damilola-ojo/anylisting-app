@@ -7,24 +7,24 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
-  end
-
-  def edit
-  end
+  end 
 
   def create
     @listing = Listing.new(listing_params)
 
     if @listing.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Listing was successfully created"
     else
       render :new
     end
   end
-  
+
+  def edit
+  end
+
   def update
     if @listing.update(listing_params)
-      redirect_to listings_path
+      redirect_to listings_path, notice: "Listing was successfully updated"
     else 
       render :edit
     end
@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing.destroy
-    redirect_to root_url
+    redirect_to root_url, notice: "Listing was successfully destroyed"
   end
 
   private
