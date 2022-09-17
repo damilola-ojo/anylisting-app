@@ -2,7 +2,13 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    @listings = Listing.all
+    @listings = ordered_listings
+  end
+
+  def show
+    @listing = Listing.find(params[:id])
+    @category = @listing.category
+    @location = @listing.location
   end
 
   def new

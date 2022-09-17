@@ -6,3 +6,9 @@
   <%= link_to "Add Listing", new_listing_path, class: "btn btn-primary" %>
 </div>
 
+<div class="text-center mt-5">
+  <h2>Recent listings</h2>
+  <hr/>
+</div>
+
+<%= render @listings %>
