@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_17_022237) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_18_202432) do
   create_table "amenities", force: :cascade do |t|
     t.string "name", null: false
     t.integer "listing_id", null: false
@@ -33,8 +33,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_022237) do
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["location_id"], name: "index_listings_on_location_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -43,6 +45,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_022237) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_locations_on_category_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -77,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_17_022237) do
   add_foreign_key "amenities", "listings"
   add_foreign_key "listings", "categories"
   add_foreign_key "listings", "locations"
+  add_foreign_key "listings", "users"
   add_foreign_key "locations", "categories"
   add_foreign_key "reservations", "listings"
   add_foreign_key "reviews", "listings"
