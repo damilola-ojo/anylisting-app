@@ -3,8 +3,8 @@
 <div class="text-center mt-5">
   <h1><%= @listing.name %></h1>
   <b class="lead mt-3">Capacity: <%= @listing.capacity %>,<b>
-  <b class="lead mt-3">Category: <%= @category.name %>,<b>
-  <b class="lead mt-3">Location: <%= @location.name %><b> 
+  <b class="lead mt-3">Category: <%= @listing.category.name %>,<b>
+  <b class="lead mt-3">Location: <%= @listing.location.name %><b> 
   <p class="lead mt-3">Description: <%= @listing.description %></p>
 </div>
 

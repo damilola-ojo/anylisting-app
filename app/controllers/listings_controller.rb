@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @listings = ordered_listings
@@ -7,8 +8,6 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @category = @listing.category
-    @location = @listing.location
   end
 
   def new
@@ -16,7 +15,9 @@ class ListingsController < ApplicationController
   end 
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = current_user
+              .listings
+              .build(listing_params)
 
     if @listing.save
       redirect_to root_path, notice: "Listing was successfully created"
