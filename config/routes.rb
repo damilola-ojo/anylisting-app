@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       sign_out: 'logout',
       sign_up: 'signup'
     }
+  resources :users, :only => [:show, :edit, :update]
   resources :listings
   resources :categories, :locations, only: [:new, :create]
 

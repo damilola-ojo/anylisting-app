@@ -1,0 +1,11 @@
+<%= simple_form_for user, url: user_path(current_user)  do |listing_form| %>
+  <%= form_error_notification(current_user) %>
+
+  <%= listing_form.input :first_name, input_html: { autofocus: true } %>
+  <%= listing_form.input :last_name %>
+  <%= listing_form.input :email %>
+  <%= link_to "Cancel", user_path(current_user), class: "btn btn-light mt-3" %>
+
+  <%= listing_form.submit class: "btn btn-primary mt-3" %>
+<% end %>
+
