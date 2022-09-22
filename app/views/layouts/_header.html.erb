@@ -3,20 +3,9 @@
     <%= link_to "Any Listing", root_url, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><%= link_to "Home", root_url, class: "nav-link active" %>
-        <li class="nav-item"><%= link_to "Add Listing", new_listing_url, class: "nav-link" %>
-        <% if current_user %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Profile", current_user, class: "dropdown-item" %></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><%= link_to "Settings", edit_user_url(current_user), class: "dropdown-item" %></li>
-            </ul>
-          </li>
-      <% end %>
-      </ul>
+      <%= render 'layouts/navigation_links' %>
     </div>
 </div>
 </nav>
+
+
