@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  #before_action :admin_only, except: :show
+  before_action :authorize_user, only: [:show, :edit]
 
   def show
-    @user = User.find(params[:id])
-    unless current_user.admin?
-      unless @user == current_user
-        redirect_to root_path, alert: "Unauthorized access"
-      end
-    end
     @listings = current_user.listings
   end
 
@@ -28,9 +22,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:role)
     end
 
-    def admin_only
+    def authorize_user
+      @user = User.find(params[:id])
       unless current_user.admin?
+        unless @user == current_user
         redirect_to root_path, alert: "Unauthorized access"
+        end
       end
     end
 end
