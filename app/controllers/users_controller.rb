@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:edit, :show, :update]
 
   def show
+    @listings = current_user.listings
   end
 
   def edit
   end
   
   def update
-    if @user.update(user_params)
+    if current_user.update(user_params)
       redirect_to current_user, notice: "Profile was updated successfully"
     else
       render :edit
@@ -17,10 +17,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user 
-      @user = current_user
-    end
-
     def user_params
       params.require(:user).permit(:first_name,
                                    :last_name,

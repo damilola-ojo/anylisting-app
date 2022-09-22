@@ -31,7 +31,7 @@ class ListingsController < ApplicationController
 
   def update
     if @listing.update(listing_params)
-      redirect_to listings_path, notice: "Listing was successfully updated"
+      redirect_to @listing, notice: "Listing was successfully updated"
     else 
       render :edit
     end
