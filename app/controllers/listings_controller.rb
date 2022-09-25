@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = current_user
-              .listings
+              .created_listings
               .build(listing_params)
 
     if @listing.save
