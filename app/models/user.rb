@@ -1,6 +1,14 @@
 class User < ApplicationRecord
-  has_many :listings, dependent: :destroy
-  validates :first_name, :last_name ,presence: true
+  has_many :listing_savings
+
+  has_many :saved_listings, 
+           through: :listing_savings,
+           source: :listing
+
+  has_many :created_listings,
+           class_name: "Listing"
+
+  validates :first_name, :last_name, presence: true
 
   enum role: { user: 0, vip: 1, admin: 2 }
 
