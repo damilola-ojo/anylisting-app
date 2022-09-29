@@ -1,0 +1,4 @@
+<%= form_with(model: current_user.listing_savings.find_by(listing_id: @listing.id),
+              html: { method: :delete }, local: true) do |f| %>
+  <%= f.submit "Unsave", class: "btn btn-secondary btn-sm" %>
+<% end %>

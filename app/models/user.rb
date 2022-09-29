@@ -16,4 +16,21 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+  # Save a listing
+  def save(listing)
+    saved_listings << listing
+  end
+
+  # Unsave a listing
+  def unsave(listing)
+    saved_listings.delete(listing)
+  end
+
+  # Returns true if the user has saved the listing
+  def listing_saved?(listing)
+    saved_listings.include?(listing)
+  end
+
 end

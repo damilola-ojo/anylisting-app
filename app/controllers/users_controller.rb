@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize_user, only: [:show, :edit]
 
   def show
-    @listings = current_user.listings
+    @listings = current_user.created_listings
   end
 
   def edit
