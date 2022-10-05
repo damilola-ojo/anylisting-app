@@ -19,12 +19,12 @@ class User < ApplicationRecord
 
 
   # Save a listing
-  def save(listing)
+  def save_listing(listing)
     saved_listings << listing
   end
 
   # Unsave a listing
-  def unsave(listing)
+  def unsave_listing(listing)
     saved_listings.delete(listing)
   end
 
